@@ -12,6 +12,7 @@ class GameViewController: UIViewController {
     
     //player variables
     var currentCoins : Int = 0
+    var tipsRate : Int = 10 //how many tips the player gets per quick order
     
     //achievement variables
     var totalCoins: Int = 0
@@ -38,8 +39,13 @@ class GameViewController: UIViewController {
     var customerWaiting = 0
     var customerWaitTime = 20
     
+    //available options
     var smoothieBase = ["Mango", "Strawberry", "Kiwi"]
+    var fruit = ["Strawberry", "Banana", "Grape", "Blueberry"]
+    var topping = ["Peanut", "Honey", "Granola"]
     
+    var currentOrder = [String]()
+    var userInput = [String]()
     
     
     //player cannot select fruit or toppings if base isn't selected.
@@ -47,13 +53,49 @@ class GameViewController: UIViewController {
     var baseSelected: Bool = false
     var fruitSelected: Bool = false
     var toppingSelected: Bool = false
-    
-    
+        
+    @IBOutlet weak var serveButton: UIButton!
     
     @IBOutlet weak var currentCustomer: UIImageView!
-    func newCustomer(){
-        //called when player takes too long to serve customer or when customer gets their order
+    
+    
+    
+    @IBAction func serveOrder(_ sender: Any) {
+        if(correctOrder()){
+            self.customer = false
+            self.customerLeaving = true
+            
+            if(self.customerWaiting <= 10){
+                currentCoins += tipsRate
+                updateText()
+            }
+            else {
+                currentCoins += tipsRate/2
+                updateText()
+            }
+        }
+    }
+    
+    func randomOrder(){
+        var randomBase = Int.random(in: 0...2) //get random base
+        var randomFruit = Int.random(in: 0...3) //random fruit
+        var randomTopping = Int.random(in: 0...2) //random topping
         
+        self.currentOrder = [self.smoothieBase[randomBase], self.fruit[randomFruit], self.topping[randomTopping]]
+        
+        print("Customer order: ")
+        for item in currentOrder {
+            print(item, " ")
+        }
+    }
+    
+    func correctOrder() -> Bool {
+        return currentOrder == userInput
+    }
+    
+    func newCustomer(){
+        //called when player takes too long to serve customer or when customer receives their order
+
         //if there's already a customer, make them leave
         if(self.customerLeaving){
             self.customer = false
@@ -64,7 +106,6 @@ class GameViewController: UIViewController {
             
             if(self.currentCustomer.center.x > -300){
                 self.currentCustomer.center.x -= 2
-                print(self.currentCustomer.center.x)
             }
             else {
                 self.customerLeaving = false
@@ -77,10 +118,10 @@ class GameViewController: UIViewController {
         //starts at x=400, ends at x=190
         if (self.currentCustomer.center.x > 289){
             self.currentCustomer.center.x -= 1
-            print(currentCustomer.center.x)
         }
         else {
             customer = true; //starts timer for customer wait time
+            
         }
     }
     
@@ -116,7 +157,7 @@ class GameViewController: UIViewController {
                 
                 if(self.customer){
                     self.customerWaiting += 1
-                    print ("Waited for: ", self.customerWaiting, " seconds")
+                    //print ("Waited for: ", self.customerWaiting, " seconds")
                     if(self.customerWaiting >= self.customerWaitTime){
                         self.customerLeaving = true
                         //self.newCustomer()
@@ -145,12 +186,14 @@ class GameViewController: UIViewController {
                     
                     //if there's already a customer, make them leave
                     if(self.customerLeaving){
+                        //delete order in progress
+                        self.userInput.removeAll()
+                        
                         //change x value so customer "leaves"
                         //goes to x=-200
                         
                         if(self.currentCustomer.center.x > -300){
                             self.currentCustomer.center.x -= 2
-                            print(self.currentCustomer.center.x)
                         }
                         else {
                             self.customerLeaving = false
@@ -164,10 +207,10 @@ class GameViewController: UIViewController {
                     //starts at x=400, ends at x=190
                     if (!self.customerLeaving && self.currentCustomer.center.x > 289){
                         self.currentCustomer.center.x -= 1
-                        print(self.currentCustomer.center.x)
                     }
                     else {
                         self.customer = true; //starts timer for customer wait time
+                        if(self.customer && !self.customerLeaving) { self.randomOrder() }
                     }
                 }
             }
@@ -199,26 +242,27 @@ class GameViewController: UIViewController {
         closeStandButton.isHidden = false
         self.gameOver = true
         self.timerRunning = false
+        totalCoins += currentCoins
     }
     
     //smoothie bases
     @IBAction func addMangoBase(_ sender: Any) {
         if(!baseSelected){
-            print("mangoBase")
+            userInput.append("Mango")
             baseSelected = true;
         }
     }
     
     @IBAction func addStrawberryBase(_ sender: Any) {
         if(!baseSelected){
-            print("strawberryBase")
+            userInput.append("Strawberry")
             baseSelected = true;
         }
     }
     
     @IBAction func addKiwiBase(_ sender: Any) {
         if(!baseSelected){
-            print("kiwiBase")
+            userInput.append("Kiwi")
             baseSelected = true;
         }
     }
@@ -226,8 +270,8 @@ class GameViewController: UIViewController {
     //fruits
     @IBAction func addStrawberry(_ sender: Any) {
         if(baseSelected && !fruitSelected){
-            print("strawberry")
             fruitSelected = true
+            userInput.append("Strawberry")
         }
         else {
             print("select a base first")
@@ -236,7 +280,7 @@ class GameViewController: UIViewController {
     
     @IBAction func addBanana(_ sender: Any) {
         if(baseSelected && !fruitSelected){
-            print("banana")
+            userInput.append("Banana")
             fruitSelected = true
         }
         else {
@@ -246,7 +290,7 @@ class GameViewController: UIViewController {
     
     @IBAction func addGrape(_ sender: Any) {
         if(baseSelected && !fruitSelected){
-            print("grape")
+            userInput.append("Grape")
             fruitSelected = true
         }
         else {
@@ -256,7 +300,7 @@ class GameViewController: UIViewController {
     
     @IBAction func addBlueberry(_ sender: Any) {
         if(baseSelected && !fruitSelected){
-            print("blueberry")
+            userInput.append("Blueberry")
             fruitSelected = true
         }
         else {
@@ -267,8 +311,21 @@ class GameViewController: UIViewController {
     //toppings
     @IBAction func addPeanuts(_ sender: Any) {
         if(baseSelected && fruitSelected && !toppingSelected){
-            print("peanuts")
+            userInput.append("Peanut")
             toppingSelected = true
+            
+            //for debugging
+            print("User Input: ")
+            for item in userInput{
+                print(item, " ")
+            }
+            var isThisRight = self.correctOrder()
+            if(isThisRight){
+                print ("Good job!")
+            }
+            else {
+                print ("Not correct")
+            }
         }
         else {
             print("make sure you have a base and fruit")
@@ -277,7 +334,7 @@ class GameViewController: UIViewController {
     
     @IBAction func addHoney(_ sender: Any) {
         if(baseSelected && fruitSelected && !toppingSelected){
-            print("honey")
+            userInput.append("Honey")
             toppingSelected = true
         }
         else {
@@ -287,7 +344,7 @@ class GameViewController: UIViewController {
     
     @IBAction func addGranola(_ sender: Any) {
         if(baseSelected && fruitSelected && !toppingSelected){
-            print("granola")
+            userInput.append("Granola")
             toppingSelected = true
         }
         else {
@@ -300,7 +357,6 @@ class GameViewController: UIViewController {
         baseSelected = false
         fruitSelected = false
         toppingSelected = false
-        
     }
     
     override func viewDidLoad() {
@@ -318,7 +374,5 @@ class GameViewController: UIViewController {
         //reset variables
         resetGame()
         
-        //start game
-        //if(gameStarted) { startTimer() }
     }
 }

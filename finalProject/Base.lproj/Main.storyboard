@@ -247,6 +247,18 @@
                                 <rect key="frame" x="400" y="253" width="198" height="255"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYQ-8y-Zlb">
+                                <rect key="frame" x="160" y="472" width="70" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.96862745289999996" green="0.84313726430000002" blue="0.98431372640000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Serve">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="serveOrder:" destination="IEH-Fw-awe" eventType="touchUpInside" id="jeG-m8-C0o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="exR-2R-4wV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -257,6 +269,7 @@
                         <outlet property="coinsEarnedText" destination="zlv-Ar-qT2" id="KZ5-I9-mv8"/>
                         <outlet property="currentCustomer" destination="sLn-OB-Y2u" id="VqG-aI-0qd"/>
                         <outlet property="endButtonImage" destination="680-OM-bli" id="Ypr-vp-lCd"/>
+                        <outlet property="serveButton" destination="MYQ-8y-Zlb" id="NYm-VW-dPo"/>
                         <outlet property="startButton" destination="dfN-yu-XSq" id="acH-xO-o62"/>
                         <outlet property="startButtonImage" destination="DBB-Q7-1Ea" id="yFd-ay-FOn"/>
                         <outlet property="timeLeftText" destination="ulc-tI-PvX" id="oMK-Nv-ouA"/>
