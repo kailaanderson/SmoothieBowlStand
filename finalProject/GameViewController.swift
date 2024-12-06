@@ -22,6 +22,11 @@ class GameViewController: UIViewController {
     var timeMinutes : Int = 9
     var timeSeconds : Int = 0
     
+    var customer = false //if customer is true, there's an order taking place
+    //when customer is false, wait until customer leaves screen to add another customer to screen
+    var customerLeaving = false
+    var customerX : Double = 0;
+    
     //game functionality
     @IBOutlet weak var timeLeftText: UILabel!
     @IBOutlet weak var coinsEarnedText: UILabel!
@@ -29,6 +34,9 @@ class GameViewController: UIViewController {
     var gameOver : Bool = false;
     var gameStarted : Bool = false;
     var gamePaused : Bool = false;
+    
+    var customerWaiting = 0
+    var customerWaitTime = 20
     
     
     //player cannot select fruit or toppings if base isn't selected.
@@ -39,7 +47,39 @@ class GameViewController: UIViewController {
     
     
     
-    
+    @IBOutlet weak var currentCustomer: UIImageView!
+    func newCustomer(){
+        //called when player takes too long to serve customer or when customer gets their order
+        
+        //if there's already a customer, make them leave
+        if(self.customerLeaving){
+            self.customer = false
+            self.customerWaiting = 0
+            
+            //change x value so customer "leaves"
+            //goes to x=-200
+            
+            if(self.currentCustomer.center.x > -300){
+                self.currentCustomer.center.x -= 2
+                print(self.currentCustomer.center.x)
+            }
+            else {
+                self.customerLeaving = false
+                self.currentCustomer.center.x = 499 //put customer on right side of screen
+            }
+            //change image to different random customer image
+        }
+        //bring new customer
+        //change x value so customer "appears"
+        //starts at x=400, ends at x=190
+        if (self.currentCustomer.center.x > 289){
+            self.currentCustomer.center.x -= 1
+            print(currentCustomer.center.x)
+        }
+        else {
+            customer = true; //starts timer for customer wait time
+        }
+    }
     
     func updateText(){
         timeLeftText.text = String(timeMinutes) + ":"
@@ -70,8 +110,64 @@ class GameViewController: UIViewController {
                     }
                     self.updateText()
                 }
+                
+                if(self.customer){
+                    self.customerWaiting += 1
+                    print ("Waited for: ", self.customerWaiting, " seconds")
+                    if(self.customerWaiting >= self.customerWaitTime){
+                        self.customerLeaving = true
+                        //self.newCustomer()
+                    }
+                }
             }
                 
+        }
+    }
+    
+    //customer movement timer
+    func customerTimer(){
+        if(timerRunning){
+            _ = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) {
+                (timer) in
+                
+                //if there's no customer (order finished/player ran out of time to serve customer/game just started) bring in a new customer
+                if(self.customerLeaving){
+                    self.customer = false
+                    self.customerWaiting = 0
+                }
+                
+                if (!self.customer && self.gameStarted) {
+                    //self.newCustomer()
+                    //called when player takes too long to serve customer or when customer gets their order
+                    
+                    //if there's already a customer, make them leave
+                    if(self.customerLeaving){
+                        //change x value so customer "leaves"
+                        //goes to x=-200
+                        
+                        if(self.currentCustomer.center.x > -300){
+                            self.currentCustomer.center.x -= 2
+                            print(self.currentCustomer.center.x)
+                        }
+                        else {
+                            self.customerLeaving = false
+                            self.currentCustomer.center.x = 499 //put customer on right side of screen
+                        }
+                        //change image to different random customer image
+                    }
+                    
+                    //bring new customer
+                    //change x value so customer "appears"
+                    //starts at x=400, ends at x=190
+                    if (!self.customerLeaving && self.currentCustomer.center.x > 289){
+                        self.currentCustomer.center.x -= 1
+                        print(self.currentCustomer.center.x)
+                    }
+                    else {
+                        self.customer = true; //starts timer for customer wait time
+                    }
+                }
+            }
         }
     }
      
@@ -85,6 +181,7 @@ class GameViewController: UIViewController {
         startButtonImage.isHidden = true
         startButton.isHidden = true
         startTimer()
+        customerTimer()
     }
     
     @IBOutlet weak var closeStandButton: UIButton!
@@ -218,6 +315,6 @@ class GameViewController: UIViewController {
         resetGame()
         
         //start game
-        if(gameStarted) { startTimer() }
+        //if(gameStarted) { startTimer() }
     }
 }
