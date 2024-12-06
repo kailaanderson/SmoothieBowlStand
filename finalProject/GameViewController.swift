@@ -38,6 +38,9 @@ class GameViewController: UIViewController {
     var customerWaiting = 0
     var customerWaitTime = 20
     
+    var smoothieBase = ["Mango", "Strawberry", "Kiwi"]
+    
+    
     
     //player cannot select fruit or toppings if base isn't selected.
     //player cannot select toppings if fruit isn't selected
@@ -183,6 +186,7 @@ class GameViewController: UIViewController {
         startTimer()
         customerTimer()
     }
+    
     
     @IBOutlet weak var closeStandButton: UIButton!
     @IBOutlet weak var endButtonImage: UIImageView!
