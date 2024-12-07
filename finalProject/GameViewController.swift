@@ -57,6 +57,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var serveButton: UIButton!
     
     @IBOutlet weak var currentCustomer: UIImageView!
+    @IBAction func pauseButton(_ sender: Any) {
+        gamePaused = !gamePaused
+    }
     
     
     
@@ -97,7 +100,10 @@ class GameViewController: UIViewController {
     @IBAction func trashOrder(_ sender: Any) {
         //reset smoothie bowl
         resetGame()
+        currentCoins -= 5
+        if(currentCoins <= 0) {currentCoins = 0}
     }
+    
     func randomOrder(){
         let randomBase = Int.random(in: 0...2) //get random base
         let randomFruit = Int.random(in: 0...3) //random fruit
