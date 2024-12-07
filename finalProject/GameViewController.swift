@@ -94,6 +94,10 @@ class GameViewController: UIViewController {
         resetGame()
     }
     
+    @IBAction func trashOrder(_ sender: Any) {
+        //reset smoothie bowl
+        resetGame()
+    }
     func randomOrder(){
         let randomBase = Int.random(in: 0...2) //get random base
         let randomFruit = Int.random(in: 0...3) //random fruit
