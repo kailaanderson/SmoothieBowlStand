@@ -31,6 +31,11 @@ class GameViewController: UIViewController {
     //game functionality
     @IBOutlet weak var timeLeftText: UILabel!
     @IBOutlet weak var coinsEarnedText: UILabel!
+    @IBOutlet weak var orderView: UIImageView!
+    @IBOutlet weak var smoothieOrderView: UIImageView!
+    @IBOutlet weak var fruitOrderView: UIImageView!
+    @IBOutlet weak var syrupOrderView: UIImageView!
+    
     
     var gameOver : Bool = false;
     var gameStarted : Bool = false;
@@ -64,7 +69,12 @@ class GameViewController: UIViewController {
     
     
     @IBAction func serveOrder(_ sender: Any) {
+        //hide order
         self.serveButton.isHidden = true
+        self.orderView.isHidden = true
+        self.smoothieOrderView.isHidden = true
+        self.fruitOrderView.isHidden = true
+        self.syrupOrderView.isHidden = true
 
         //for debugging
         print("Your order: ")
@@ -106,11 +116,66 @@ class GameViewController: UIViewController {
     }
     
     func randomOrder(){
+        //create random order
         let randomBase = Int.random(in: 0...2) //get random base
         let randomFruit = Int.random(in: 0...3) //random fruit
         let randomTopping = Int.random(in: 0...2) //random topping
         
         self.currentOrder = [self.smoothieBase[randomBase], self.fruit[randomFruit], self.topping[randomTopping]]
+        
+        //display random order
+        self.orderView.isHidden = false
+        self.smoothieOrderView.isHidden = false
+        self.fruitOrderView.isHidden = false
+        self.syrupOrderView.isHidden = false
+        
+        //smoothie base
+        switch(currentOrder[0]){
+        case "Mango" :
+            self.smoothieOrderView.image = UIImage(named: "mango")
+            break
+        case "Strawberry":
+            self.smoothieOrderView.image = UIImage(named: "strawberry")
+            break
+        case "Kiwi":
+            self.smoothieOrderView.image = UIImage(named: "kiwi")
+            break
+        default:
+            self.smoothieOrderView.isHidden = true
+        }
+        
+        //fruit
+        switch(currentOrder[1]){
+        case "Raspberry":
+            self.fruitOrderView.image = UIImage(named: "raspberry")
+            break
+        case "Banana":
+            self.fruitOrderView.image = UIImage(named: "banana")
+            break
+        case "Grape":
+            self.fruitOrderView.image = UIImage(named: "grape")
+            break
+        case "Blueberry":
+            self.fruitOrderView.image = UIImage(named: "blueberry")
+            break
+        default:
+            self.fruitOrderView.isHidden = true
+        }
+        
+        //syrup
+        switch(currentOrder[2]){
+        case "Blueberry Syrup":
+            self.syrupOrderView.image = UIImage(named: "blueberrySyrup")
+            break
+        case "Honey":
+            self.syrupOrderView.image = UIImage(named: "honey")
+            break
+        case "Strawberry Syrup":
+            self.syrupOrderView.image = UIImage(named: "strawberrySyrup")
+            break
+        default:
+            self.syrupOrderView.isHidden = true
+        }
         
         print("Customer order: ")
         for item in currentOrder {

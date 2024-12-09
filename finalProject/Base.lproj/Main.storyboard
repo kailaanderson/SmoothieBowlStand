@@ -221,6 +221,10 @@
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
                             </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="order" translatesAutoresizingMaskIntoConstraints="NO" id="M0B-Jm-9Dt">
+                                <rect key="frame" x="-4" y="169" width="281" height="157"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="DQw-2f-Tkx">
                                 <rect key="frame" x="36" y="270" width="321" height="119"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -280,6 +284,18 @@
                                 <rect key="frame" x="177" y="52" width="53" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iZy-DZ-WuL" userLabel="smoothieOrderImage">
+                                <rect key="frame" x="36" y="200" width="62" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ePn-tS-SDp" userLabel="fruitOrderImage">
+                                <rect key="frame" x="105" y="200" width="62" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Nig-6e-5fC" userLabel="syrupOrderImage">
+                                <rect key="frame" x="172" y="200" width="62" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="exR-2R-4wV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -290,9 +306,13 @@
                         <outlet property="coinsEarnedText" destination="zlv-Ar-qT2" id="KZ5-I9-mv8"/>
                         <outlet property="currentCustomer" destination="sLn-OB-Y2u" id="VqG-aI-0qd"/>
                         <outlet property="endButtonImage" destination="680-OM-bli" id="Ypr-vp-lCd"/>
+                        <outlet property="fruitOrderView" destination="ePn-tS-SDp" id="Q5B-0T-JTj"/>
+                        <outlet property="orderView" destination="M0B-Jm-9Dt" id="5xe-RP-1fF"/>
                         <outlet property="serveButton" destination="MYQ-8y-Zlb" id="NYm-VW-dPo"/>
+                        <outlet property="smoothieOrderView" destination="iZy-DZ-WuL" id="xyG-je-Inm"/>
                         <outlet property="startButton" destination="dfN-yu-XSq" id="acH-xO-o62"/>
                         <outlet property="startButtonImage" destination="DBB-Q7-1Ea" id="yFd-ay-FOn"/>
+                        <outlet property="syrupOrderView" destination="Nig-6e-5fC" id="XOu-IY-wV1"/>
                         <outlet property="timeLeftText" destination="ulc-tI-PvX" id="oMK-Nv-ouA"/>
                     </connections>
                 </viewController>
@@ -353,6 +373,7 @@
         <image name="button" width="1080" height="1920"/>
         <image name="coin" width="109" height="109"/>
         <image name="customer1" width="422" height="646"/>
+        <image name="order" width="503" height="342"/>
         <image name="title" width="1080" height="1920"/>
         <image name="trash" width="226" height="268"/>
         <systemColor name="systemBackgroundColor">
