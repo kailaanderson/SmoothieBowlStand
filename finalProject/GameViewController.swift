@@ -20,7 +20,7 @@ class GameViewController: UIViewController {
     
     //timers
     var timerRunning : Bool = false
-    var timeMinutes : Int = 9
+    var timeMinutes : Int = 11
     var timeSeconds : Int = 0
     
     var customer = false //if customer is true, there's an order taking place
@@ -41,8 +41,8 @@ class GameViewController: UIViewController {
     
     //available options
     var smoothieBase = ["Mango", "Strawberry", "Kiwi"]
-    var fruit = ["Strawberry", "Banana", "Grape", "Blueberry"]
-    var topping = ["Peanut", "Honey", "Granola"]
+    var fruit = ["Raspberry", "Banana", "Grape", "Blueberry"]
+    var topping = ["Blueberry Syrup", "Honey", "Strawberry Syrup"]
     
     var currentOrder = [String]()
     var userInput = ["Smoothie", "Fruit", "Topping"]
@@ -79,6 +79,7 @@ class GameViewController: UIViewController {
         
         if(correctOrder()){
             print("Order was correct")
+            totalCustomersServed += 1
             if(self.customerWaiting <= 10){
                 currentCoins += tipsRate
                 print("earned 10 coins")
@@ -203,47 +204,50 @@ class GameViewController: UIViewController {
             _ = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) {
                 (timer) in
                 
-                if(self.toppingSelected){
-                    self.serveButton.isHidden = false
-                }
-                
-                //if there's no customer (order finished/player ran out of time to serve customer/game just started) bring in a new customer
-                if(self.customerLeaving){
-                    self.customer = false
-                    self.customerWaiting = 0
-                }
-                
-                if (!self.customer && self.gameStarted) {
-                    //self.newCustomer()
-                    //called when player takes too long to serve customer or when customer gets their order
+                if(self.timerRunning){
+                    if(self.toppingSelected){
+                        self.serveButton.isHidden = false
+                    }
                     
-                    //if there's already a customer, make them leave
+                    //if there's no customer (order finished/player ran out of time to serve customer/game just started) bring in a new customer
                     if(self.customerLeaving){
-                        //change x value so customer "leaves"
-                        //goes to x=-200
+                        self.customer = false
+                        self.customerWaiting = 0
+                    }
+                    
+                    if (!self.customer && self.gameStarted) {
+                        //self.newCustomer()
+                        //called when player takes too long to serve customer or when customer gets their order
                         
-                        if(self.currentCustomer.center.x > -300){
-                            self.currentCustomer.center.x -= 2
+                        //if there's already a customer, make them leave
+                        if(self.customerLeaving){
+                            //change x value so customer "leaves"
+                            //goes to x=-200
+                            
+                            if(self.currentCustomer.center.x > -300){
+                                self.currentCustomer.center.x -= 2
+                            }
+                            else {
+                                self.customerLeaving = false
+                                self.currentCustomer.center.x = 499 //put customer on right side of screen
+                            }
+                            //change image to different random customer image
+                        }
+                        
+                        //bring new customer
+                        //change x value so customer "appears"
+                        //starts at x=400, ends at x=190
+                        if (!self.customerLeaving && self.currentCustomer.center.x > 289){
+                            self.currentCustomer.center.x -= 1
                         }
                         else {
-                            self.customerLeaving = false
-                            self.currentCustomer.center.x = 499 //put customer on right side of screen
+                            self.customer = true; //starts timer for customer wait time
+                            if(self.customer && !self.customerLeaving) { self.randomOrder() }
                         }
-                        //change image to different random customer image
-                    }
-                    
-                    //bring new customer
-                    //change x value so customer "appears"
-                    //starts at x=400, ends at x=190
-                    if (!self.customerLeaving && self.currentCustomer.center.x > 289){
-                        self.currentCustomer.center.x -= 1
-                    }
-                    else {
-                        self.customer = true; //starts timer for customer wait time
-                        if(self.customer && !self.customerLeaving) { self.randomOrder() }
                     }
                 }
             }
+              
         }
     }
      
@@ -256,6 +260,7 @@ class GameViewController: UIViewController {
         gameStarted = true
         startButtonImage.isHidden = true
         startButton.isHidden = true
+        self.currentCustomer.isHidden = false
         startTimer()
         customerTimer()
     }
@@ -273,6 +278,7 @@ class GameViewController: UIViewController {
         self.gameOver = true
         self.timerRunning = false
         totalCoins += currentCoins
+        self.currentCustomer.isHidden = true
     }
     
     //smoothie bases
@@ -298,10 +304,10 @@ class GameViewController: UIViewController {
     }
     
     //fruits
-    @IBAction func addStrawberry(_ sender: Any) {
+    @IBAction func addRaspberry(_ sender: Any) {
         if(baseSelected && !fruitSelected){
             fruitSelected = true
-            userInput[1] = "Strawberry"
+            userInput[1] = "Raspberry"
         }
         else {
             print("select a base first")
@@ -339,9 +345,9 @@ class GameViewController: UIViewController {
     }
     
     //toppings
-    @IBAction func addPeanuts(_ sender: Any) {
+    @IBAction func addBlueberrySyrup(_ sender: Any) {
         if(baseSelected && fruitSelected && !toppingSelected){
-            userInput[2] = "Peanut"
+            userInput[2] = "Blueberry Syrup"
             toppingSelected = true
         }
         else {
@@ -359,9 +365,9 @@ class GameViewController: UIViewController {
         }
     }
     
-    @IBAction func addGranola(_ sender: Any) {
+    @IBAction func addStrawberrySyrup(_ sender: Any) {
         if(baseSelected && fruitSelected && !toppingSelected){
-            userInput[2] = "Granola"
+            userInput[2] = "Strawberry Syrup"
             toppingSelected = true
         }
         else {

@@ -84,10 +84,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Old Fruit Stand" translatesAutoresizingMaskIntoConstraints="NO" id="EzV-dr-W1R">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBd-FZ-1de">
                                 <rect key="frame" x="32" y="528" width="75" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -119,10 +115,9 @@
                                 <rect key="frame" x="139" y="535" width="113" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="strawberry"/>
+                                <buttonConfiguration key="configuration" style="plain" title="raspberry"/>
                                 <connections>
-                                    <action selector="addKiwiBase:" destination="IEH-Fw-awe" eventType="touchUpInside" id="Tea-fx-aG3"/>
-                                    <action selector="addStrawberry:" destination="IEH-Fw-awe" eventType="touchUpInside" id="pHo-w8-ri3"/>
+                                    <action selector="addRaspberry:" destination="IEH-Fw-awe" eventType="touchUpInside" id="pHo-w8-ri3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="slb-t6-t9m">
@@ -132,7 +127,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="banana"/>
                                 <connections>
                                     <action selector="addBanana:" destination="IEH-Fw-awe" eventType="touchUpInside" id="fG1-oW-Vg5"/>
-                                    <action selector="addKiwiBase:" destination="IEH-Fw-awe" eventType="touchUpInside" id="PYZ-k1-2e3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="QOL-p4-ood">
@@ -142,7 +136,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="grape"/>
                                 <connections>
                                     <action selector="addGrape:" destination="IEH-Fw-awe" eventType="touchUpInside" id="z2v-Xk-Axa"/>
-                                    <action selector="addKiwiBase:" destination="IEH-Fw-awe" eventType="touchUpInside" id="NYc-rz-3ba"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xH4-Ik-xUO">
@@ -152,18 +145,15 @@
                                 <buttonConfiguration key="configuration" style="plain" title="blueberry"/>
                                 <connections>
                                     <action selector="addBlueberry:" destination="IEH-Fw-awe" eventType="touchUpInside" id="3KC-zS-brD"/>
-                                    <action selector="addKiwiBase:" destination="IEH-Fw-awe" eventType="touchUpInside" id="3qM-6L-erE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="VtM-1h-tyB">
                                 <rect key="frame" x="281" y="529" width="72" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="peanuts"/>
+                                <buttonConfiguration key="configuration" style="plain" title="blueberrySyrup"/>
                                 <connections>
-                                    <action selector="addBlueberry:" destination="IEH-Fw-awe" eventType="touchUpInside" id="VD8-v2-hQ4"/>
-                                    <action selector="addKiwiBase:" destination="IEH-Fw-awe" eventType="touchUpInside" id="Eo3-o3-vtG"/>
-                                    <action selector="addPeanuts:" destination="IEH-Fw-awe" eventType="touchUpInside" id="GM0-IP-nbQ"/>
+                                    <action selector="addBlueberrySyrup:" destination="IEH-Fw-awe" eventType="touchUpInside" id="xv9-0B-IJN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="v1y-Dc-jg5">
@@ -172,22 +162,25 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="honey"/>
                                 <connections>
-                                    <action selector="addBlueberry:" destination="IEH-Fw-awe" eventType="touchUpInside" id="Jm3-4D-qFQ"/>
                                     <action selector="addHoney:" destination="IEH-Fw-awe" eventType="touchUpInside" id="bQQ-8V-qEn"/>
-                                    <action selector="addKiwiBase:" destination="IEH-Fw-awe" eventType="touchUpInside" id="tas-po-ubo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="x3J-zQ-O3w">
                                 <rect key="frame" x="281" y="734" width="72" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="granola"/>
+                                <buttonConfiguration key="configuration" style="plain" title="strawberrySyrup"/>
                                 <connections>
-                                    <action selector="addBlueberry:" destination="IEH-Fw-awe" eventType="touchUpInside" id="ug6-Tj-DIT"/>
-                                    <action selector="addGranola:" destination="IEH-Fw-awe" eventType="touchUpInside" id="IXt-z7-O7N"/>
-                                    <action selector="addKiwiBase:" destination="IEH-Fw-awe" eventType="touchUpInside" id="Fs2-2d-GMM"/>
+                                    <action selector="addStrawberrySyrup:" destination="IEH-Fw-awe" eventType="touchUpInside" id="IXt-z7-O7N"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Old Fruit Stand" translatesAutoresizingMaskIntoConstraints="NO" id="EzV-dr-W1R">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulc-tI-PvX">
                                 <rect key="frame" x="54" y="58" width="103" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -238,7 +231,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="endButton:" destination="IEH-Fw-awe" eventType="touchUpInside" id="kuG-GL-d5n"/>
-                                    <action selector="startGame:" destination="IEH-Fw-awe" eventType="touchUpInside" id="xmZ-DS-VOs"/>
+                                    <segue destination="3ca-4L-7ju" kind="presentation" modalPresentationStyle="fullScreen" id="LaQ-ev-Dnq"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="customer1" translatesAutoresizingMaskIntoConstraints="NO" id="sLn-OB-Y2u">
@@ -341,7 +334,7 @@
             <objects>
                 <navigationController title="Upgrades View" id="3ca-4L-7ju" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QNl-LS-HKo">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
