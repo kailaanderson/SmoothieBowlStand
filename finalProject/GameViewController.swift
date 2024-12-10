@@ -414,6 +414,13 @@ class GameViewController: UIViewController {
             }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+
+            // Reload the totalCoins from UserDefaults to reflect any updates from UpgradesViewController
+            totalCoins = UserDefaults.standard.integer(forKey: "totalCoins")
+        }
+    
     @IBOutlet weak var closeStandButton: UIButton!
     @IBOutlet weak var endButtonImage: UIImageView!
     @IBAction func endButton(_ sender: UIButton) {
@@ -428,6 +435,9 @@ class GameViewController: UIViewController {
         self.timerRunning = false
         totalCoins += currentCoins
         self.currentCustomer.isHidden = true
+        
+        //update user defaults
+        UserDefaults.standard.set(totalCoins, forKey: "totalCoins")
     }
     
     //smoothie bases
@@ -561,6 +571,9 @@ class GameViewController: UIViewController {
         }
         timeLeftText.text! += String(timeSeconds)
         coinsEarnedText.text = String(currentCoins)
+        
+        //user defaults to store data
+        totalCoins = UserDefaults.standard.integer(forKey: "totalCoins")
         
         //reset variables
         resetGame()
