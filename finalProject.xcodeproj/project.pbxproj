@@ -17,6 +17,7 @@
 		ACA4715C2D00ECAC004894E3 /* finalProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA4715B2D00ECAC004894E3 /* finalProjectUITests.swift */; };
 		ACA4715E2D00ECAC004894E3 /* finalProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA4715D2D00ECAC004894E3 /* finalProjectUITestsLaunchTests.swift */; };
 		ACA4716B2D00FEAD004894E3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA4716A2D00FEAD004894E3 /* GameViewController.swift */; };
+		ACE369CF2D08A2D50098B11B /* UpgradesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE369CE2D08A2D50098B11B /* UpgradesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		ACA4715B2D00ECAC004894E3 /* finalProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finalProjectUITests.swift; sourceTree = "<group>"; };
 		ACA4715D2D00ECAC004894E3 /* finalProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finalProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ACA4716A2D00FEAD004894E3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		ACE369CE2D08A2D50098B11B /* UpgradesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				ACA4713E2D00ECAA004894E3 /* ViewController.swift */,
 				ACA4716A2D00FEAD004894E3 /* GameViewController.swift */,
 				ACA471402D00ECAA004894E3 /* Main.storyboard */,
+				ACE369CE2D08A2D50098B11B /* UpgradesViewController.swift */,
 				ACA471432D00ECAB004894E3 /* Assets.xcassets */,
 				ACA471452D00ECAB004894E3 /* LaunchScreen.storyboard */,
 				ACA471482D00ECAB004894E3 /* Info.plist */,
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACA4716B2D00FEAD004894E3 /* GameViewController.swift in Sources */,
+				ACE369CF2D08A2D50098B11B /* UpgradesViewController.swift in Sources */,
 				ACA4713F2D00ECAA004894E3 /* ViewController.swift in Sources */,
 				ACA4713B2D00ECAA004894E3 /* AppDelegate.swift in Sources */,
 				ACA4713D2D00ECAA004894E3 /* SceneDelegate.swift in Sources */,

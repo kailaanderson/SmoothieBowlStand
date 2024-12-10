@@ -39,11 +39,16 @@ class GameViewController: UIViewController {
     @IBOutlet weak var smoothieImage: UIImageView!
     @IBOutlet weak var fruitImage: UIImageView!
     
+    //upgrades
+    var tipJar : Bool = false
+    var photos : Bool = false
+    var stereo : Bool = false
+    var betterIngredients : Bool = false
+    var betterStand : Bool = false
     
-    
-    var gameOver : Bool = false;
-    var gameStarted : Bool = false;
-    var gamePaused : Bool = false;
+    var gameOver : Bool = false
+    var gameStarted : Bool = false
+    var gamePaused : Bool = false
     
     var customerWaiting = 0
     var customerWaitTime = 20
@@ -348,6 +353,34 @@ class GameViewController: UIViewController {
               
         }
     }
+    
+    func displayUpgrades(){
+        if(tipJar){
+            //image
+            
+            //upgrade
+            tipsRate += 10
+        }
+        if(photos){
+            //image
+            
+            //upgrade
+            customerWaitTime += 5
+        }
+        if(stereo){
+            //image
+            
+            //upgrade
+            customerWaitTime += 5
+        }
+        if(betterIngredients){
+            //upgrade
+            tipsRate += 10
+        }
+        if(betterStand){
+            //image
+        }
+    }
      
     
     //game buttons
@@ -513,6 +546,7 @@ class GameViewController: UIViewController {
         
         //reset variables
         resetGame()
+        displayUpgrades()
         
     }
 }
