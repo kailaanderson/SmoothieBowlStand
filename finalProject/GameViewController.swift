@@ -22,13 +22,14 @@ class GameViewController: UIViewController {
     
     //timers
     var timerRunning : Bool = false
-    var timeMinutes : Int = 9
+    var timeMinutes : Int = 11
     var timeSeconds : Int = 0
     
     var customer = false //if customer is true, there's an order taking place
     //when customer is false, wait until customer leaves screen to add another customer to screen
     var customerLeaving = false
     var customerX : Double = 0;
+    var randomCustomer = Int.random(in: 0...3)
     
     //game functionality
     @IBOutlet weak var timeLeftText: UILabel!
@@ -62,6 +63,9 @@ class GameViewController: UIViewController {
     
     var currentOrder = [String]()
     var userInput = ["Smoothie", "Fruit", "Topping"]
+    
+    var upsetCustomer = String()
+
     
     
     //player cannot select fruit or toppings if base isn't selected.
@@ -153,6 +157,7 @@ class GameViewController: UIViewController {
         //removeOrder()
         currentCoins -= 5
         if(currentCoins <= 0) {currentCoins = 0}
+        serveButton.isHidden = true
     }
     
     func randomOrder(){
@@ -234,7 +239,7 @@ class GameViewController: UIViewController {
         if(self.customerLeaving){
             self.customer = false
             self.customerWaiting = 0
-            
+
             //change x value so customer "leaves"
             //goes to x=-200
             
@@ -244,6 +249,8 @@ class GameViewController: UIViewController {
             else {
                 self.customerLeaving = false
                 self.currentCustomer.center.x = 499 //put customer on right side of screen
+                
+                
             }
             //change image to different random customer image
         }
@@ -318,6 +325,7 @@ class GameViewController: UIViewController {
                     if(self.customerLeaving){
                         self.customer = false
                         self.customerWaiting = 0
+                        self.serveButton.isHidden = true
                     }
                     
                     if (!self.customer && self.gameStarted) {
@@ -335,6 +343,11 @@ class GameViewController: UIViewController {
                             else {
                                 self.customerLeaving = false
                                 self.currentCustomer.center.x = 499 //put customer on right side of screen
+                                
+                                //get new customer
+                                self.randomCustomer = Int.random(in: 0...3)
+                                var customerName = "customer" + String(self.randomCustomer)
+                                self.currentCustomer.image = UIImage(named: customerName)
                             }
                             //change image to different random customer image
                         }
@@ -436,6 +449,19 @@ class GameViewController: UIViewController {
         self.timerRunning = false
         totalCoins += currentCoins
         self.currentCustomer.isHidden = true
+        
+        //hide order
+        orderView.isHidden = true
+        smoothieOrderView.isHidden = true
+        fruitOrderView.isHidden = true
+        syrupOrderView.isHidden = true
+        
+        //hide assembled order
+        smoothieImage.isHidden = true
+        fruitImage.isHidden = true
+        syrupImage.isHidden = true
+        
+        serveButton.isHidden = true
         
         //update user defaults
         UserDefaults.standard.set(totalCoins, forKey: "totalCoins")
