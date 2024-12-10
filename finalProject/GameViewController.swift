@@ -10,6 +10,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    
     //player variables
     var currentCoins : Int = 0
     var tipsRate : Int = 10 //how many tips the player gets per quick order
@@ -354,22 +355,27 @@ class GameViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var tipJarImage: UIImageView!
+    @IBOutlet weak var photosDisplay: UIImageView!
+    @IBOutlet weak var stereoImage: UIImageView!
+    @IBOutlet weak var standImage: UIImageView!
+    
     func displayUpgrades(){
         if(tipJar){
             //image
-            
+            tipJarImage.isHidden = false
             //upgrade
             tipsRate += 10
         }
         if(photos){
             //image
-            
+            photosDisplay.isHidden = false
             //upgrade
             customerWaitTime += 5
         }
         if(stereo){
             //image
-            
+            stereoImage.isHidden = false
             //upgrade
             customerWaitTime += 5
         }
@@ -379,6 +385,7 @@ class GameViewController: UIViewController {
         }
         if(betterStand){
             //image
+            standImage.image = UIImage(named: "New Fruit Stand")
         }
     }
      
@@ -396,11 +403,22 @@ class GameViewController: UIViewController {
         customerTimer()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            // Check if the segue is the one to UpgradesViewController
+            if segue.identifier == "toUpgradesVC" {
+                // Get a reference to the destination view controller
+                if let upgradesVC = segue.destination as? UpgradesViewController {
+                    // Pass data to UpgradesViewController
+                    upgradesVC.coins = self.totalCoins
+                }
+            }
+    }
     
     @IBOutlet weak var closeStandButton: UIButton!
     @IBOutlet weak var endButtonImage: UIImageView!
-    @IBAction func endButton(_ sender: Any) {
+    @IBAction func endButton(_ sender: UIButton) {
         //go to upgrades scene
+        performSegue(withIdentifier: "toUpgradesVC", sender: self)
     }
     
     func endGame(){

@@ -10,76 +10,68 @@ import UIKit
 class UpgradesViewController: UIViewController {
     
     @IBOutlet weak var coinsLabel: UILabel!
-    @IBOutlet weak var coinAchievement: UILabel!
-    @IBOutlet weak var customerAchievement: UILabel!
-    @IBOutlet weak var upgradeAchievement: UILabel!
     
     
-    var gameVC : GameViewController?
     var coins : Int = 0
     var upgradesBought = 0
+    var tipJar : Bool = false
+    var photos : Bool = false
+    var stereo : Bool = false
+    var ingredients : Bool = false
+    var stand : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    
-        var availableCoins : Int = gameVC?.totalCoins ?? 0
-        var customers : Int = gameVC?.totalCustomersServed ?? 0
-        coinsLabel.text = String(availableCoins)
-        coins = availableCoins
-        
-        //update achievement labels
-        coinAchievement.text = String(coins) + "/1000 Coins Earned"
-        customerAchievement.text = String(customers) + "/200 Customers Served"
-        upgradeAchievement.text = String(upgradesBought) + "/5 Upgrades Bought"
+        coinsLabel.text = String(coins)
     }
     
     @IBAction func purchaseTipJar(_ sender: Any) {
-        if(coins >= 100){
-            coins -= 100
-            gameVC?.tipJar = true
+        if(coins >= 150){
+            coins -= 150
+            tipJar = true
             coinsLabel.text = String(coins)
             upgradesBought += 1
         }
     }
     
     @IBAction func purchasePhotos(_ sender: Any) {
-        if(coins >= 100){
-            coins -= 100
-            gameVC?.photos = true
+        if(coins >= 300){
+            coins -= 300
+            photos = true
             coinsLabel.text = String(coins)
             upgradesBought += 1
         }
     }
     
     @IBAction func purchaseStereo(_ sender: Any) {
-        if(coins >= 200){
-            coins -= 200
-            gameVC?.stereo = true
+        if(coins >= 500){
+            coins -= 500
+            stereo = true
             coinsLabel.text = String(coins)
             upgradesBought += 1
         }
     }
     
     @IBAction func purchaseBetterIngredients(_ sender: Any) {
-        if(coins >= 300){
-            coins -= 300
-            gameVC?.betterIngredients = true
+        if(coins >= 550){
+            coins -= 550
+            ingredients = true
             coinsLabel.text = String(coins)
             upgradesBought += 1
         }
     }
     
     @IBAction func purchaseBetterStand(_ sender: Any) {
-        if(coins > 500){
-            coins -= 500
-            gameVC?.betterStand = true
+        if(coins > 800){
+            coins -= 800
+            stand = true
             coinsLabel.text = String(coins)
             upgradesBought += 1
         }
     }
     
-    
+    //send back remaining coins and upgrades
     
     
 
