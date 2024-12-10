@@ -242,18 +242,6 @@
                                 <rect key="frame" x="400" y="253" width="198" height="255"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYQ-8y-Zlb">
-                                <rect key="frame" x="160" y="472" width="70" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.96862745289999996" green="0.84313726430000002" blue="0.98431372640000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Serve">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="serveOrder:" destination="IEH-Fw-awe" eventType="touchUpInside" id="jeG-m8-C0o"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="trash" translatesAutoresizingMaskIntoConstraints="NO" id="akY-Qi-ccw">
                                 <rect key="frame" x="0.0" y="416" width="91" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -296,6 +284,30 @@
                                 <rect key="frame" x="172" y="200" width="62" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LWP-Jf-Srq" userLabel="fruit">
+                                <rect key="frame" x="132" y="416" width="127" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AWg-T0-lkJ" userLabel="smoothie">
+                                <rect key="frame" x="122" y="446" width="146" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q85-oB-RYZ" userLabel="syrup">
+                                <rect key="frame" x="122" y="446" width="76" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYQ-8y-Zlb">
+                                <rect key="frame" x="160" y="472" width="70" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.96862745289999996" green="0.84313726430000002" blue="0.98431372640000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Serve">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="serveOrder:" destination="IEH-Fw-awe" eventType="touchUpInside" id="jeG-m8-C0o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="exR-2R-4wV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -306,12 +318,15 @@
                         <outlet property="coinsEarnedText" destination="zlv-Ar-qT2" id="KZ5-I9-mv8"/>
                         <outlet property="currentCustomer" destination="sLn-OB-Y2u" id="VqG-aI-0qd"/>
                         <outlet property="endButtonImage" destination="680-OM-bli" id="Ypr-vp-lCd"/>
+                        <outlet property="fruitImage" destination="LWP-Jf-Srq" id="6eq-N1-m87"/>
                         <outlet property="fruitOrderView" destination="ePn-tS-SDp" id="Q5B-0T-JTj"/>
                         <outlet property="orderView" destination="M0B-Jm-9Dt" id="5xe-RP-1fF"/>
                         <outlet property="serveButton" destination="MYQ-8y-Zlb" id="NYm-VW-dPo"/>
+                        <outlet property="smoothieImage" destination="AWg-T0-lkJ" id="ERU-xr-s8r"/>
                         <outlet property="smoothieOrderView" destination="iZy-DZ-WuL" id="xyG-je-Inm"/>
                         <outlet property="startButton" destination="dfN-yu-XSq" id="acH-xO-o62"/>
                         <outlet property="startButtonImage" destination="DBB-Q7-1Ea" id="yFd-ay-FOn"/>
+                        <outlet property="syrupImage" destination="q85-oB-RYZ" id="zcV-un-3tY"/>
                         <outlet property="syrupOrderView" destination="Nig-6e-5fC" id="XOu-IY-wV1"/>
                         <outlet property="timeLeftText" destination="ulc-tI-PvX" id="oMK-Nv-ouA"/>
                     </connections>
@@ -320,17 +335,21 @@
             </objects>
             <point key="canvasLocation" x="962.59541984732823" y="-35.211267605633807"/>
         </scene>
-        <!--Settings View-->
+        <!--Upgrades View-->
         <scene sceneID="5LB-5Y-NUf">
             <objects>
-                <tableViewController title="Settings View" id="gL8-9i-RY9" sceneMemberID="viewController">
+                <tableViewController title="Upgrades View" id="gL8-9i-RY9" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="b6g-FJ-hIs">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="tXX-Yc-lgY">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="816"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="w6s-W4-buP">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="866" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w6s-W4-buP" id="4zn-7U-AgK">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
@@ -347,12 +366,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ks-us-226" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963" y="675"/>
+            <point key="canvasLocation" x="962.59541984732823" y="674.64788732394368"/>
         </scene>
-        <!--Upgrades View-->
+        <!--Navigation Controller-->
         <scene sceneID="6ev-LI-c1h">
             <objects>
-                <navigationController title="Upgrades View" id="3ca-4L-7ju" sceneMemberID="viewController">
+                <navigationController title="Navigation Controller" id="3ca-4L-7ju" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QNl-LS-HKo">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

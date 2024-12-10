@@ -35,6 +35,10 @@ class GameViewController: UIViewController {
     @IBOutlet weak var smoothieOrderView: UIImageView!
     @IBOutlet weak var fruitOrderView: UIImageView!
     @IBOutlet weak var syrupOrderView: UIImageView!
+    @IBOutlet weak var syrupImage: UIImageView!
+    @IBOutlet weak var smoothieImage: UIImageView!
+    @IBOutlet weak var fruitImage: UIImageView!
+    
     
     
     var gameOver : Bool = false;
@@ -67,6 +71,34 @@ class GameViewController: UIViewController {
     }
     
     
+    func removeOrder(){
+        fruitImage.image = UIImage(named: " ")
+        smoothieImage.image = UIImage(named: " ")
+        syrupImage.image = UIImage(named: " ")
+    }
+    
+    func assembleOrder(){
+        if(!gameOver && !gamePaused){
+            if(baseSelected){
+                smoothieImage.isHidden = false
+                let currentBase : String = userInput[0] + "Bowl"
+                smoothieImage.image = UIImage(named: currentBase)
+            }
+            else {smoothieImage.image = UIImage(named: " ")}
+            
+            if(fruitSelected){
+                fruitImage.isHidden = false
+                fruitImage.image = UIImage(named: userInput[1])
+            }
+            else {fruitImage.image = UIImage(named: " ")}
+            
+            if(toppingSelected){
+                syrupImage.isHidden = false
+                syrupImage.image = UIImage(named: userInput[2])
+            }
+            else {syrupImage.image = UIImage(named: " ")}
+        }
+    }
     
     @IBAction func serveOrder(_ sender: Any) {
         //hide order
@@ -111,6 +143,7 @@ class GameViewController: UIViewController {
     @IBAction func trashOrder(_ sender: Any) {
         //reset smoothie bowl
         resetGame()
+        //removeOrder()
         currentCoins -= 5
         if(currentCoins <= 0) {currentCoins = 0}
     }
@@ -132,13 +165,13 @@ class GameViewController: UIViewController {
         //smoothie base
         switch(currentOrder[0]){
         case "Mango" :
-            self.smoothieOrderView.image = UIImage(named: "mango")
+            self.smoothieOrderView.image = UIImage(named: "Mango")
             break
         case "Strawberry":
-            self.smoothieOrderView.image = UIImage(named: "strawberry")
+            self.smoothieOrderView.image = UIImage(named: "Strawberry")
             break
         case "Kiwi":
-            self.smoothieOrderView.image = UIImage(named: "kiwi")
+            self.smoothieOrderView.image = UIImage(named: "Kiwi")
             break
         default:
             self.smoothieOrderView.isHidden = true
@@ -147,16 +180,16 @@ class GameViewController: UIViewController {
         //fruit
         switch(currentOrder[1]){
         case "Raspberry":
-            self.fruitOrderView.image = UIImage(named: "raspberry")
+            self.fruitOrderView.image = UIImage(named: "raspberryOrder")
             break
         case "Banana":
-            self.fruitOrderView.image = UIImage(named: "banana")
+            self.fruitOrderView.image = UIImage(named: "bananaOrder")
             break
         case "Grape":
-            self.fruitOrderView.image = UIImage(named: "grape")
+            self.fruitOrderView.image = UIImage(named: "grapeOrder")
             break
         case "Blueberry":
-            self.fruitOrderView.image = UIImage(named: "blueberry")
+            self.fruitOrderView.image = UIImage(named: "blueberryOrder")
             break
         default:
             self.fruitOrderView.isHidden = true
@@ -165,13 +198,13 @@ class GameViewController: UIViewController {
         //syrup
         switch(currentOrder[2]){
         case "Blueberry Syrup":
-            self.syrupOrderView.image = UIImage(named: "blueberrySyrup")
+            self.syrupOrderView.image = UIImage(named: "Blueberry Syrup")
             break
         case "Honey":
-            self.syrupOrderView.image = UIImage(named: "honey")
+            self.syrupOrderView.image = UIImage(named: "Honey")
             break
         case "Strawberry Syrup":
-            self.syrupOrderView.image = UIImage(named: "strawberrySyrup")
+            self.syrupOrderView.image = UIImage(named: "Strawberry Syrup")
             break
         default:
             self.syrupOrderView.isHidden = true
@@ -351,6 +384,8 @@ class GameViewController: UIViewController {
         if(!baseSelected){
             userInput[0] = "Mango"
             baseSelected = true;
+            self.assembleOrder()
+
         }
     }
     
@@ -358,6 +393,8 @@ class GameViewController: UIViewController {
         if(!baseSelected){
             userInput[0] = "Strawberry"
             baseSelected = true;
+            self.assembleOrder()
+
         }
     }
     
@@ -365,6 +402,8 @@ class GameViewController: UIViewController {
         if(!baseSelected){
             userInput[0] = "Kiwi"
             baseSelected = true;
+            self.assembleOrder()
+
         }
     }
     
@@ -373,6 +412,8 @@ class GameViewController: UIViewController {
         if(baseSelected && !fruitSelected){
             fruitSelected = true
             userInput[1] = "Raspberry"
+            self.assembleOrder()
+
         }
         else {
             print("select a base first")
@@ -383,6 +424,8 @@ class GameViewController: UIViewController {
         if(baseSelected && !fruitSelected){
             userInput[1] = "Banana"
             fruitSelected = true
+            self.assembleOrder()
+
         }
         else {
             print("select a base first")
@@ -393,6 +436,8 @@ class GameViewController: UIViewController {
         if(baseSelected && !fruitSelected){
             userInput[1] = "Grape"
             fruitSelected = true
+            self.assembleOrder()
+
         }
         else {
             print("select a base first")
@@ -403,6 +448,8 @@ class GameViewController: UIViewController {
         if(baseSelected && !fruitSelected){
             userInput[1] = "Blueberry"
             fruitSelected = true
+            self.assembleOrder()
+
         }
         else {
             print("select a base first")
@@ -414,6 +461,8 @@ class GameViewController: UIViewController {
         if(baseSelected && fruitSelected && !toppingSelected){
             userInput[2] = "Blueberry Syrup"
             toppingSelected = true
+            self.assembleOrder()
+
         }
         else {
             print("make sure you have a base and fruit")
@@ -424,6 +473,7 @@ class GameViewController: UIViewController {
         if(baseSelected && fruitSelected && !toppingSelected){
             userInput[2] = "Honey"
             toppingSelected = true
+            self.assembleOrder()
         }
         else {
             print("make sure you have a base and fruit")
@@ -434,6 +484,7 @@ class GameViewController: UIViewController {
         if(baseSelected && fruitSelected && !toppingSelected){
             userInput[2] = "Strawberry Syrup"
             toppingSelected = true
+            self.assembleOrder()
         }
         else {
             print("make sure you have a base and fruit")
@@ -445,6 +496,7 @@ class GameViewController: UIViewController {
         baseSelected = false
         fruitSelected = false
         toppingSelected = false
+        removeOrder()
     }
     
     override func viewDidLoad() {
