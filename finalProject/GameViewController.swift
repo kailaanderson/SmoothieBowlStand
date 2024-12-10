@@ -18,6 +18,7 @@ class GameViewController: UIViewController {
     //achievement variables
     var totalCoins: Int = 0
     var totalCustomersServed: Int = 0
+    var coinsAfterUpdates : Int = 0
     
     //timers
     var timerRunning : Bool = false
@@ -418,7 +419,7 @@ class GameViewController: UIViewController {
             super.viewWillAppear(animated)
 
             // Reload the totalCoins from UserDefaults to reflect any updates from UpgradesViewController
-            totalCoins = UserDefaults.standard.integer(forKey: "totalCoins")
+            totalCoins = coinsAfterUpdates
         }
     
     @IBOutlet weak var closeStandButton: UIButton!

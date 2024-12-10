@@ -72,6 +72,25 @@ class UpgradesViewController: UIViewController {
     }
     
     //send back remaining coins and upgrades
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            // Check if the segue is the one to UpgradesViewController
+            if segue.identifier == "toGameVC" {
+                // Get a reference to the destination view controller
+                if let gameVC = segue.destination as? GameViewController {
+                    // Pass data to GameViewController
+                    gameVC.coinsAfterUpdates = self.coins
+                    gameVC.tipJar = self.tipJar
+                    gameVC.photos = self.photos
+                    gameVC.stereo = self.stereo
+                    gameVC.betterIngredients = self.ingredients
+                    gameVC.betterStand = self.stand
+                }
+            }
+    }
+    
+    @IBAction func startNewDay(_ sender: Any) {
+        performSegue(withIdentifier: "toGameVC", sender: self)
+    }
     
     
 

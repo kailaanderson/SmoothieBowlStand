@@ -446,6 +446,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="NewDay"/>
                                 <connections>
+                                    <action selector="startNewDay:" destination="A1X-DH-Y69" eventType="touchUpInside" id="mb8-Hn-XcN"/>
                                     <segue destination="IEH-Fw-awe" kind="presentation" identifier="toGameVC" modalPresentationStyle="fullScreen" id="P6T-JX-mf7"/>
                                 </connections>
                             </button>
@@ -597,7 +598,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bda-tq-Ar2"/>
         <segue reference="P6T-JX-mf7"/>
     </inferredMetricsTieBreakers>
     <resources>
