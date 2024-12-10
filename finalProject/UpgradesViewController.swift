@@ -26,6 +26,13 @@ class UpgradesViewController: UIViewController {
         coinsLabel.text = String(coins)
     }
     
+    //button variables
+    @IBOutlet weak var tipsButton: UIButton!
+    @IBOutlet weak var photosButton: UIButton!
+    @IBOutlet weak var stereoButton: UIButton!
+    @IBOutlet weak var ingredientsButton: UIButton!
+    @IBOutlet weak var standButton: UIButton!
+    
     @IBAction func purchaseTipJar(_ sender: Any) {
         if(coins >= 150){
             coins -= 150
@@ -33,6 +40,7 @@ class UpgradesViewController: UIViewController {
             coinsLabel.text = String(coins)
             upgradesBought += 1
         }
+        tipsButton.titleLabel?.text = "Bought"
     }
     
     @IBAction func purchasePhotos(_ sender: Any) {
@@ -42,6 +50,7 @@ class UpgradesViewController: UIViewController {
             coinsLabel.text = String(coins)
             upgradesBought += 1
         }
+        photosButton.titleLabel?.text = "Bought"
     }
     
     @IBAction func purchaseStereo(_ sender: Any) {
@@ -51,6 +60,7 @@ class UpgradesViewController: UIViewController {
             coinsLabel.text = String(coins)
             upgradesBought += 1
         }
+        stereoButton.titleLabel?.text = "Bought"
     }
     
     @IBAction func purchaseBetterIngredients(_ sender: Any) {
@@ -60,6 +70,7 @@ class UpgradesViewController: UIViewController {
             coinsLabel.text = String(coins)
             upgradesBought += 1
         }
+        ingredientsButton.titleLabel?.text = "Bought"
     }
     
     @IBAction func purchaseBetterStand(_ sender: Any) {
@@ -69,6 +80,7 @@ class UpgradesViewController: UIViewController {
             coinsLabel.text = String(coins)
             upgradesBought += 1
         }
+        standButton.titleLabel?.text = "Bought"
     }
     
     //send back remaining coins and upgrades

@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
     
     //timers
     var timerRunning : Bool = false
-    var timeMinutes : Int = 11
+    var timeMinutes : Int = 9
     var timeSeconds : Int = 0
     
     var customer = false //if customer is true, there's an order taking place
@@ -439,6 +439,13 @@ class GameViewController: UIViewController {
         
         //update user defaults
         UserDefaults.standard.set(totalCoins, forKey: "totalCoins")
+        UserDefaults.standard.set(tipsRate, forKey: "tipsRate")
+        UserDefaults.standard.set(tipJar, forKey: "tipJar")
+        UserDefaults.standard.set(photos, forKey: "photos")
+        UserDefaults.standard.set(stereo, forKey: "stereo")
+        UserDefaults.standard.set(betterIngredients, forKey: "betterIngredients")
+        UserDefaults.standard.set(betterStand, forKey: "betterStand")
+        UserDefaults.standard.set(customerWaitTime, forKey: "customerWaitTime")
     }
     
     //smoothie bases
@@ -575,6 +582,13 @@ class GameViewController: UIViewController {
         
         //user defaults to store data
         totalCoins = UserDefaults.standard.integer(forKey: "totalCoins")
+        //tipsRate = UserDefaults.standard.integer(forKey: "tipsRate")
+       
+        tipJar = UserDefaults.standard.bool(forKey: "tipJar")
+        photos = UserDefaults.standard.bool(forKey: "photos")
+        stereo = UserDefaults.standard.bool(forKey: "stereo")
+        betterIngredients = UserDefaults.standard.bool(forKey: "betterIngredients")
+        betterStand = UserDefaults.standard.bool(forKey: "betterIngredients")
         
         //reset variables
         resetGame()

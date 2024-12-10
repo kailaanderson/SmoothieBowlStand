@@ -573,6 +573,11 @@
                     </view>
                     <connections>
                         <outlet property="coinsLabel" destination="mTa-3N-PHd" id="CPq-86-J2f"/>
+                        <outlet property="ingredientsButton" destination="Ozs-Az-AFh" id="7hl-Ez-PwK"/>
+                        <outlet property="photosButton" destination="czW-JE-7t0" id="nsQ-Ql-fru"/>
+                        <outlet property="standButton" destination="Qcd-ul-EPc" id="iuL-dn-CLC"/>
+                        <outlet property="stereoButton" destination="v96-5c-U0Q" id="QPw-LE-SmV"/>
+                        <outlet property="tipsButton" destination="f26-yj-DiN" id="Scv-gz-Msg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hE9-6R-VjH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -598,6 +603,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="bda-tq-Ar2"/>
         <segue reference="P6T-JX-mf7"/>
     </inferredMetricsTieBreakers>
     <resources>
