@@ -255,19 +255,6 @@
                                     <action selector="trashOrder:" destination="IEH-Fw-awe" eventType="touchUpInside" id="Xbb-FZ-nVq"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pause" translatesAutoresizingMaskIntoConstraints="NO" id="vu2-YE-SqK">
-                                <rect key="frame" x="-4" y="34" width="83" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHR-2x-TRI">
-                                <rect key="frame" x="8" y="51" width="50" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="pauseButton:" destination="IEH-Fw-awe" eventType="touchUpInside" id="pxw-ke-Ret"/>
-                                </connections>
-                            </button>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iZy-DZ-WuL" userLabel="smoothieOrderImage">
                                 <rect key="frame" x="36" y="200" width="62" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -319,6 +306,11 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin" id="o33-Wi-TbH">
                                 <rect key="frame" x="160" y="52" width="53" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0Dn-A3-v47">
+                                <rect key="frame" x="8" y="58" width="45" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="exR-2R-4wV"/>
@@ -609,17 +601,20 @@
     <resources>
         <image name="Background" width="1080" height="1920"/>
         <image name="Old Fruit Stand" width="1080" height="1920"/>
-        <image name="Pause" width="238" height="238"/>
         <image name="Upgrades" width="1080" height="1920"/>
         <image name="button" width="1080" height="1920"/>
+        <image name="clock" catalog="system" width="128" height="123"/>
         <image name="coin" width="109" height="109"/>
-        <image name="customer1" width="422" height="646"/>
+        <image name="customer1" width="424" height="546"/>
         <image name="order" width="503" height="342"/>
         <image name="photos" width="463" height="249"/>
         <image name="stereo" width="286" height="294"/>
         <image name="tipJar" width="179" height="288"/>
         <image name="title" width="1080" height="1920"/>
         <image name="trash" width="226" height="268"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

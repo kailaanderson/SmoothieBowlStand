@@ -63,9 +63,7 @@ class GameViewController: UIViewController {
     
     var currentOrder = [String]()
     var userInput = ["Smoothie", "Fruit", "Topping"]
-    
-    var upsetCustomer = String()
-
+        
     
     
     //player cannot select fruit or toppings if base isn't selected.
@@ -77,9 +75,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var serveButton: UIButton!
     
     @IBOutlet weak var currentCustomer: UIImageView!
-    @IBAction func pauseButton(_ sender: Any) {
-        gamePaused = !gamePaused
-    }
+   
     
     
     func removeOrder(){
@@ -249,10 +245,11 @@ class GameViewController: UIViewController {
             else {
                 self.customerLeaving = false
                 self.currentCustomer.center.x = 499 //put customer on right side of screen
-                
-                
             }
-            //change image to different random customer image
+            orderView.isHidden = true
+            smoothieOrderView.isHidden = true
+            fruitOrderView.isHidden = true
+            syrupOrderView.isHidden = true
         }
         //bring new customer
         //change x value so customer "appears"
@@ -302,7 +299,6 @@ class GameViewController: UIViewController {
                     if(self.customerWaiting >= self.customerWaitTime){
                         self.customerLeaving = true
                         self.resetGame()
-                        //self.newCustomer()
                     }
                 }
             }
@@ -326,6 +322,12 @@ class GameViewController: UIViewController {
                         self.customer = false
                         self.customerWaiting = 0
                         self.serveButton.isHidden = true
+                        
+                        self.orderView.isHidden = true
+                        self.smoothieOrderView.isHidden = true
+                        self.fruitOrderView.isHidden = true
+                        self.syrupOrderView.isHidden = true
+                    
                     }
                     
                     if (!self.customer && self.gameStarted) {

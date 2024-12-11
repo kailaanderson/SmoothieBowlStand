@@ -39,8 +39,9 @@ class UpgradesViewController: UIViewController {
             tipJar = true
             coinsLabel.text = String(coins)
             upgradesBought += 1
+            tipsButton.titleLabel?.text = "Bought"
+            tipsButton.isHidden = true
         }
-        tipsButton.titleLabel?.text = "Bought"
     }
     
     @IBAction func purchasePhotos(_ sender: Any) {
@@ -49,8 +50,9 @@ class UpgradesViewController: UIViewController {
             photos = true
             coinsLabel.text = String(coins)
             upgradesBought += 1
+            photosButton.isHidden = true
+            photosButton.titleLabel?.text = "Bought"
         }
-        photosButton.titleLabel?.text = "Bought"
     }
     
     @IBAction func purchaseStereo(_ sender: Any) {
@@ -59,8 +61,9 @@ class UpgradesViewController: UIViewController {
             stereo = true
             coinsLabel.text = String(coins)
             upgradesBought += 1
+            stereoButton.titleLabel?.text = "Bought"
+            stereoButton.isHidden = true
         }
-        stereoButton.titleLabel?.text = "Bought"
     }
     
     @IBAction func purchaseBetterIngredients(_ sender: Any) {
@@ -69,8 +72,9 @@ class UpgradesViewController: UIViewController {
             ingredients = true
             coinsLabel.text = String(coins)
             upgradesBought += 1
+            ingredientsButton.titleLabel?.text = "Bought"
+            ingredientsButton.isHidden = true
         }
-        ingredientsButton.titleLabel?.text = "Bought"
     }
     
     @IBAction func purchaseBetterStand(_ sender: Any) {
@@ -79,8 +83,9 @@ class UpgradesViewController: UIViewController {
             stand = true
             coinsLabel.text = String(coins)
             upgradesBought += 1
+            standButton.titleLabel?.text = "Bought"
+            standButton.isHidden = true
         }
-        standButton.titleLabel?.text = "Bought"
     }
     
     //send back remaining coins and upgrades
